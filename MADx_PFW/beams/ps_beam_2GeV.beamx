@@ -1,0 +1,4 @@
+BEAM, PARTICLE=PROTON, PC = 2.78;
+BRHO      := BEAM->PC * 3.3356;
+
+return;

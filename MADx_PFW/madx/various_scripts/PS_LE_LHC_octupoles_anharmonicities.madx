@@ -1,0 +1,83 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../../beams/ps_beam_1dot4GeV.beamx";
+call, file="../../elements/PS.ele";
+call, file="../../sequence/PS.seq";
+call, file="../../strength/elements.str";
+call, file="../../strength/PS_LE_LHC.str";
+call, file="../../cmd/macros.ptc";
+
+ /******************************************************************
+ * Matching
+ ******************************************************************/
+
+/*
+use, sequence=PS;
+match, use_macro;
+  vary,   name=kf, step=1.0E-6 ;
+  vary,   name=kd, step=1.0E-6 ;
+  USE_MACRO, name=ptc_twiss_tune_macro;
+  CONSTRAINT, expr=  table(ptc_twiss_summary,Q1)= 0.21;
+  CONSTRAINT, expr=  table(ptc_twiss_summary,Q2)= 0.245;
+  JACOBIAN,calls=10000,bisec=3,TOLERANCE=1.0E-21;
+ENDMATCH;
+Assign, echo="../output/matching/PS_LE_LHC.matching";
+value, kf, kd;
+Assign, echo=terminal;
+*/
+
+ODE = -15;
+!ONO55 = +15;
+
+!value, PR.ONO55->k3l;
+
+/******************************************************************
+ * PTC twiss
+ ******************************************************************/
+
+use, sequence=PS;
+ptc_create_universe;
+ptc_create_layout, time=true, model=2, exact=true, method=6, nst=5;
+ptc_twiss,closed_orbit,normal,icase=4,no=4;!,file="../../output/anharmonicities/PS_LE_LHC.ptctwiss";
+ptc_end;
+write, table=NONLIN,file='../../output/anharmonicities/NONLIN_ODN_-15A.tfs';
+
+stop;
+
+/******************************************************************
+ * Anharmonicities
+ ******************************************************************/
+
+use, sequence=PS;
+
+ptc_create_universe;
+ptc_create_layout,time=false, model=2, exact=true, method=6, nst=5;
+
+select_ptc_normal,  q1=0, q2=0;
+
+select_ptc_normal, anhx=1,0,0; ! dQx/dex
+select_ptc_normal, anhx=2,0,0; ! d2Qx/dex^2
+select_ptc_normal, anhx=3,0,0; ! d3Qx/dex^3
+select_ptc_normal, anhx=0,1,0;
+
+select_ptc_normal, anhy=1,0,0; ! dQy/dey
+select_ptc_normal, anhy=2,0,0; ! d2Qy/dey^2
+select_ptc_normal, anhy=3,0,0; ! d3Qy/dey^3
+select_ptc_normal, anhy=0,1,0;
+
+ptc_normal,normal,icase=5,no=7;
+ptc_end;
+write, table=normal_results,file='../../output/anharmonicities/PS_LE_LHC.tfs';
+
+stop;

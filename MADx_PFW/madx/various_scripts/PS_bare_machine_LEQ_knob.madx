@@ -1,0 +1,78 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../../beams/ps_beam_1dot4GeV.beamx";
+call, file="../../elements/PS.ele";
+call, file="../../sequence/PS.seq";
+call, file="../../strength/elements.str";
+call, file="../../strength/PS_LE_bare_machine.str";
+call, file="../../cmd/macros.ptc";
+
+/******************************************************************
+ * Horizontal and vertical knob creation with LEQ
+ ******************************************************************/
+
+! bare machine tunes 
+Qx_bare = 0.2453999062;
+Qy_bare = 0.2836999065;
+
+! applied step size to compute knobs
+dQ = 0.05;
+
+/******************************************************************
+ * Horizontal plane
+ ******************************************************************/
+
+Qx = Qx_bare - dQ;
+Qy = Qy_bare;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/LEQ/dQx_negative.ks";
+value, Qx, Qy, kf, kd;
+Assign, echo=terminal;
+
+/*
+use, sequence=PS;
+select, flag=ptc_twiss, column=name,s,betx,alfx,bety,alfy,disp1,disp2;
+ptc_create_universe;
+ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+ptc_twiss,closed_orbit,icase=56,no=4,file="./ptc_twiss_test.dat";
+ptc_end;
+*/
+
+Qx = Qx_bare + dQ;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/LEQ/dQx_positive.ks";
+value, Qx, Qy, kf, kd;
+Assign, echo=terminal;
+
+ /******************************************************************
+ * Vertical plane
+ ******************************************************************/
+
+Qx = Qx_bare;
+Qy = Qy_bare - dQ;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/LEQ/dQy_negative.ks";
+value, Qx, Qy, kf, kd;
+Assign, echo=terminal;
+
+Qy = Qy_bare + dQ;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/LEQ/dQy_positive.ks";
+value, Qx, Qy, kf, kd;
+Assign, echo=terminal;
+

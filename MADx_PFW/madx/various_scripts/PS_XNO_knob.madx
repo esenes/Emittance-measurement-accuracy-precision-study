@@ -1,0 +1,78 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../beams/ps_beam_26GeV.beamx";
+call, file="../elements/PS.ele";
+call, file="../sequence/PS.seq";
+call, file="../strength/elements.str";
+call, file="../strength/PS_FT_LHC.str";
+call, file="../cmd/macros.ptc";
+
+/******************************************************************
+ * Horizontal and vertical knob creation with LEQ
+ ******************************************************************/
+
+! bare machine chromaticities
+Qpx_bare  =  0.6534904878 ;
+Qpy_bare  =  2.28070065 ;
+
+! applied step size to compute knobs
+dQp = 1.;
+
+/******************************************************************
+ * Horizontal plane
+ ******************************************************************/
+
+Qpx = Qpx_bare - dQp;
+Qpy = Qpy_bare;
+
+exec, match_XNO;
+ASSIGN, ECHO = "../../output/knobs/XNO/dQpx_negative.ks";
+value, Qpx, Qpy, kf, kd;
+Assign, echo=terminal;
+
+/*
+use, sequence=PS;
+select, flag=ptc_twiss, column=name,s,betx,alfx,bety,alfy,disp1,disp2;
+ptc_create_universe;
+ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+ptc_twiss,closed_orbit,icase=56,no=4,file="./ptc_twiss_test.dat";
+ptc_end;
+*/
+
+Qpx = Qpx_bare + dQ;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/XNO/dQpx_positive.ks";
+value, Qpx, Qpy, kf, kd;
+Assign, echo=terminal;
+
+ /******************************************************************
+ * Vertical plane
+ ******************************************************************/
+
+Qpx = Qpx_bare;
+Qpy = Qpy_bare - dQp;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/XNO/dQpy_negative.ks";
+value, Qpx, Qpy, kf, kd;
+Assign, echo=terminal;
+
+Qpy = Qpy_bare + dQp;
+
+exec, match_LEQ;
+ASSIGN, ECHO = "../../output/knobs/XNO/dQpy_positive.ks";
+value, Qpx, Qpy, kf, kd;
+Assign, echo=terminal;
+
