@@ -1,0 +1,65 @@
+Date:
+	19/10/2018
+
+Beam: 
+	(MD2) Vistars MD4603_MTE_2018 this is a SFTPRO 1585E10
+
+MD: 
+	XXX
+
+Objective: 
+
+
+	Program of today:	-- STFPRO CHARACTERISATION --
+
+		- Profiles before the splitting at C710 (or in a stable point before C600-C650)
+
+		- Profiles after the island separation at C800
+			
+		- Profiles after the island rotation at C820-C825
+
+
+	Theres is an entry on the BI PS logbook with screenshots!
+
+1. Measurements with BWS65H (Previous cycle EAST_North "nTOF" 349e10 - 43.06e10)
+	Beam Order on sequence : 24
+	In at 710ms
+
+2. Measurements with LIU-BWS 2 - 26 (3 bad one)
+	In at  710ms (Ltimdlay 664)
+	Out at 943ms 
+	Beam cut by BLMs at measurement approx 14
+
+3. Measurements with BWS65H (Previous cycle EAST_North "nTOF" 349e10 - 43.06e10)
+	Beam Order on sequence : 24
+	In at 800ms
+	Seen Three Islands
+
+4. Messing around with timming to try to catch 3 island on the liu-bws 26-34
+
+
+5. Returning to scans at 800ms 35 - 58 (3 missing)
+
+6. Measurements with BWS65H
+	- In at 822ms (Three islands)
+	- At some moment (meas 4) sequence was changed
+	- Previous user is the same
+
+7. Measurements with LIU-BWS at 822ms 59 - 79
+	- Measurement 71 weird!
+	- Beam off
+
+-- 
+
+Set of scans at Flat bottom 185ms
+
+8. Measurements with BWS65H C185 (20)
+	- Tomoscope screenshot available on PS-BI logbook
+	- Ap/p = 1.28 
+
+9. Measurements with liubws c185 83 - 103
+
+10. Measurements with BWS65H C185 (20)
+
+9. Measurements with liubws c185 103-123
+

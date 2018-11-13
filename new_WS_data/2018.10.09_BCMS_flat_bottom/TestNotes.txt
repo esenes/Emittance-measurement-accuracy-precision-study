@@ -1,0 +1,81 @@
+
+Date: 09/10/2018
+Beam: MD4404_BCMS 1 Bunch 75e10 - 80e10 PpB
+
+
+There is a LogBook Entry from Eugenio 
+
+INOUT Delay BWS65 -> 250ms
+
+Settings:
+---------
+	HV 600V
+	CH1 - 2V
+	CH2 - 200mV
+	CH3 - 100mV
+	CH4 - 50mV 		
+
+
+Scans done at flat bottom (Morning)
+-----------------------------------
+
+Scan FlightTimes:
+
+	IN --> 46.5
+	OUT --> 233.7
+
+
+20 Scans Required at 600ms: 1 - 20
+
+	Dly --> 554
+	IN --> 600
+	Out --> 787
+
+20 Scans Required at 500ms Simultaneously with BWS65H Later (600ms): 22 - 42
+
+	Dly --> 453
+	IN --> 500
+	OUT --> 676.7	
+
+
+20 Scans Required at 600ms Simultaneously with BWS65H First (500ms): 43 - 63
+
+	Dly --> 553
+	IN --> 600
+	OUT --> 776.7	
+
+-- Break 12:20 / 14:00 --
+
+
+Scans done at flat bottom (Afternoon)
+-------------------------------------
+
+
+20 Scans Required at 600ms: 64 - 84
+
+	Dly --> 554
+	IN --> 600
+	Out --> 787
+
+
+20 Scans Required at 500ms Simultaneously with BWS65H Later: 85 - 106
+
+	Dly --> 453
+	IN --> 500
+	OUT --> 676.7	
+
+% Between 98 - 99  App Crashed BWS65 did but not LIUBWS
+
+Measurement 107 in Zero cycle previous cycle LHCIONEARLY 4 0.71 PB54
+Measurement 110 in Zero cycle previous cycle Zero
+
+
+20 Scans Required at 600ms Simultaneously with BWS65H First: 111 - 132
+
+	Dly --> 553
+	IN --> 600
+	OUT --> 776.7	
+
+
+
+
