@@ -1,0 +1,85 @@
+Date:
+	24/10/2018
+
+Beam: 
+
+	Single Bunch BCMS 40-90e10 PpB (MD4404_BCMS User MD7)
+
+MD: 
+	MD4603 - New WS benchmarking on BCMS beam
+
+People:
+	E.Senes, (BE-OP)
+	J.Emery, J.L. Sirvent (BE-BI-PM) - LIU-BWS
+	J.Storey, S.Levasseur (BE-BI-BL) - BGI
+
+Objective: 
+
+	Brightness Test with single bunch BCMS - Perform scans with LIU-BWS during BCMS flat bottom (LIUBWS IN CTIME 185ms OUT CTIME 372ms LTIMDly 139ms) while randomly varying beam intensity.
+	The idea is to reconstruct a well known plot already done in OP BWS with linear emittance variation with energy.
+
+	Varying intensity randomly between: 40 - 90 e10 PpB
+
+	Tests with BGI Emittance blow-up with LIU-BWS
+
+Note: 
+	See screenshots in BI-PS elogbook
+
+
+*********************************
+
+Sistematic data taking from #9 2018-10-24-10-37-16
+
+
+24/10/2018 10:14 DAY PSMD
+	BGI bump DHZ75 to DHZ89
+	
+	
+24/10/2018 10:40 DAY PSMD
+	Started without BGI. Discard first matlab shot as usual 10:40:30
+	Stopped matlab at shot 63 bcs of C10MHz fail.
+
+	Restarted at 11:27 all together (new WS + old WS + BGI)!
+
+	New WS inscan --> C185
+	BWS65 inscan --> C200 (ouscan +570 ms)
+
+	BGI measuring C170 to C420
+
+	Matlab stopped at 156
+	Matlab restarted at 12:56:30~. LIU wirescanners and BGI proceeeded
+
+	Restarted MATLAB+LIUWS at 13:09:40. BGI out.
+	
+24/10/2018 11:20 DAY BI PS
+	Started together with Eugenio's Script LIU-BWS Measurement #9 -2018-10-224-10-37-16
+
+	Beam off for a little while (5min) 11.20 file 69 -2018-10-24-11_17_23.mat
+
+	Eugenio's Script Re-Started from measurement 70 - 2018-10-24-11_27_18.mat
+	Eugenio is operating BWS65 CTIME IN-200 CTIME OUT-770
+	
+24/10/2018 12:16 DAY BI PS (Screenshot)
+	In scans show triangular profiles on LIU-BWS APP around #133 2018-10-24-12-06-24 (to be checked)
+
+	Going Back to Gaussian around # 151 2018-20-24-12-20-41
+	
+24/10/2018 12:26 DAY BI PS (Screenshot)
+	Not checked previously but now we've got a TOF before our cycle
+
+	Beam OFF for a while after measurement #161 2018-10-20-12-27-29
+	
+24/10/2018 13:04 DAY BI PS (Screenshot)
+	Stopped at 214 2018-10-24-13-04-01
+	Re adjustment of acquisition windows
+
+	Re Started at 216 2018-10-24-13-10-01
+	Eugenio's Script also re-started at this point
+
+	From Measurement ~224 Beam displaced and some lost also unsinc with Eugenio's script
+
+	LIU-BWS Scanner in continuous mode from 237 2018-10-24-13-31-37
+	Script from Eugenio was never stopped
+	
+24/10/2018 14:29 DAY BI PS
+	Test finished at 14.29 total scans ~328 

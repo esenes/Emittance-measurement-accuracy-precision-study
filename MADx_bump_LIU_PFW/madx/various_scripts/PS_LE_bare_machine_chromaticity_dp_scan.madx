@@ -1,0 +1,48 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../../beams/ps_beam_1dot4GeV.beamx";
+call, file="../../elements/PS.ele";
+call, file="../../sequence/PS.seq";
+call, file="../../strength/elements.str";
+call, file="../strength/PS_LE_bare_machine.str";
+call, file="../../cmd/macros.ptc";
+
+/******************************************************************
+ * PTC Twiss to obtain chromaticity
+ ******************************************************************/
+
+use, sequence=PS;
+
+PTC_twiss(dp0) : macro={
+	ptc_create_universe;
+	ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+	ptc_twiss, closed_orbit, icase=56, no=4, deltap=dp0, table;
+	}
+
+create, table=mytable, column = dp0, qx, qy;
+
+qx := table(ptc_twiss_summary, q1);
+qy := table(ptc_twiss_summary, q2);
+
+dp0 = -0.01;
+dp0_max = abs(dp0);
+
+while (dp0 <= dp0_max){
+	exec, PTC_twiss(dp0);
+	fill, table = mytable;
+	dp0=dp0 + 0.001;
+}
+
+write, table=mytable;
+write, table=mytable, file = '../../output/twiss/chromaticity/PS_LE_bare_machine_chromaticity_summary.out';

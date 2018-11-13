@@ -1,0 +1,65 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../beams/ps_beam_1dot4GeV.beamx";
+call, file="../elements/PS.ele";
+call, file="../sequence/PS.seq";
+call, file="../strength/elements.str";
+call, file="../cmd/macros.ptc";
+
+/******************************************************************
+* Polynomials obtained from measurements of non-linear chromaticity
+*                on LHC flat bottom - 09.04.2018
+ ******************************************************************/
+!2nd dedree polynomial
+!Qx=0.2454 - 5.3465x + 24.0383x^2
+!Qy=0.2837 - 7.1631x + 42.3603x^2
+
+MQx0 :=  0.2454;
+MQx1 := -5.3465;
+MQx2 := 24.0383;
+
+MQy0 :=  0.2837;
+MQy1 := -7.1631;
+MQy2 := 42.3603;
+
+/******************************************************************
+ * Multipole matching
+ ******************************************************************/
+
+use, sequence=PS;
+match,use_macro;
+        vary,name=PFKI1F;
+        vary,name=PFKI1D;
+        vary,name=PFKI2F;
+        vary,name=PFKI2D;
+        vary,name=PFKI3F;
+        vary,name=PFKI3D;
+        use_macro,name=ptc_chrom_macro;
+        constraint,expr= qx0= 1*MQx0;
+		constraint,expr= qy0= 1*MQy0;
+        constraint,expr= qx1= 1*MQx1;	
+        constraint,expr= qy1= 1*MQy1;	
+        constraint,expr= qx2= 2*MQx2;
+        constraint,expr= qy2= 2*MQy2;		
+jacobian,calls=50000,bisec=3;
+ENDMATCH;
+Assign, echo="../../output/matching/PS_LE_bare_machine_multipoles.matching";
+
+value,PFKI1F,PFKI2F,PFKI3F;
+value,PFKI1D,PFKI2D,PFKI3D;
+
+Assign, echo=terminal;
+
+value,qx0,qx1,qx2/2;
+value,qy0,qy1,qy2/2;
