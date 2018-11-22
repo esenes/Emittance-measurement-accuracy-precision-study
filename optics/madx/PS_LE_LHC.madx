@@ -1,0 +1,45 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../beams/ps_beam_1dot4GeV.beamx";
+call, file="../elements/PS.ele";
+call, file="../sequence/PS.seq";
+call, file="../strength/elements.str";
+call, file="../strength/PS_LE_LHC.str";
+call, file="../cmd/macros.ptc";
+
+ /******************************************************************
+ * Matching
+ ******************************************************************/
+
+/*
+use, sequence=PS;
+match, use_macro;
+  vary,   name=kf, step=1.0E-6 ;
+  vary,   name=kd, step=1.0E-6 ;
+  USE_MACRO, name=ptc_twiss_tune_macro;
+  CONSTRAINT, expr=  table(ptc_twiss_summary,Q1)= 0.21;
+  CONSTRAINT, expr=  table(ptc_twiss_summary,Q2)= 0.245;
+  JACOBIAN,calls=10000,bisec=3,TOLERANCE=1.0E-21;
+ENDMATCH;
+Assign, echo="../output/matching/PS_LE_LHC.matching";
+value, kf, kd;
+Assign, echo=terminal;
+*/
+
+/******************************************************************
+ * Twiss
+ ******************************************************************/
+
+use, sequence=PS;
+twiss, file = '../output/twiss/PS_LE_LHC.twiss';

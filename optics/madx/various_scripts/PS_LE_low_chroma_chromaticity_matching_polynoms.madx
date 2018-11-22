@@ -1,0 +1,84 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../../beams/ps_beam_1dot4GeV.beamx";
+call, file="../../elements/PS.ele";
+call, file="../../sequence/PS.seq";
+call, file="../../strength/elements.str";
+call, file="../../cmd/macros.ptc";
+
+/******************************************************************
+* Polynomials obtained from measurements of non-linear chromaticity
+*                on LHC flat bottom - 09.04.2018
+ ******************************************************************/
+!2nd dedree polynomial
+!Qx=0.21 + 0.83801238423 x +  68.6013557004 x^2
+!Qy=0.24 - 2.91974082086 x + 115.247493197 x^2
+
+MQx0 :=  0.21;
+MQx1 := 0.838012384227;
+MQx2 := 68.6013557004;
+
+MQy0 :=  0.24;
+MQy1 := -2.91974082086;
+MQy2 := 115.247493197;
+
+/*******************************************************************************
+**                        Low-energy quadrupoles                              **
+**                              from LSA                                      **
+*******************************************************************************/
+
+kf                 =     -0.002 ;
+kd                 =      0.0036 ;
+
+/******************************************************************
+ * Multipole matching
+ ******************************************************************/
+
+use, sequence=PS;
+match,use_macro;
+        vary,name=PFKI1F;
+        vary,name=PFKI1D;
+        vary,name=PFKI2F;
+        vary,name=PFKI2D;
+        vary,name=PFKI3F;
+        vary,name=PFKI3D;
+        use_macro,name=ptc_chrom_macro;
+        constraint,expr= qx0= 1*MQx0;
+	constraint,expr= qy0= 1*MQy0;
+        constraint,expr= qx1= 1*MQx1;	
+        constraint,expr= qy1= 1*MQy1;	
+        constraint,expr= qx2= 2*MQx2;
+        constraint,expr= qy2= 2*MQy2;		
+jacobian,calls=50000,bisec=3;
+ENDMATCH;
+Assign, echo="../../output/matching/PS_LE_low_chroma_multipoles.matching";
+
+value,PFKI1F,PFKI2F,PFKI3F;
+value,PFKI1D,PFKI2D,PFKI3D;
+
+Assign, echo=terminal;
+
+value,qx0,qx1,qx2/2;
+value,qy0,qy1,qy2/2;
+
+/******************************************************************
+ * PTC twiss
+ ******************************************************************/
+
+use, sequence=PS;
+ptc_create_universe;
+ptc_create_layout, time=false, model=2, exact=true, method=6, nst=5;
+ptc_twiss,closed_orbit,icase=56,no=4,file="../../output/twiss/PS_LE_low_chroma.ptctwiss";
+ptc_end;
+

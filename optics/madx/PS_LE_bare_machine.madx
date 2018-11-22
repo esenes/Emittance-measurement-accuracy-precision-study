@@ -1,0 +1,37 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../beams/ps_beam_1dot4GeV.beamx";
+call, file="../elements/PS.ele";
+call, file="../sequence/PS.seq";
+call, file="../strength/elements.str";
+call, file="../strength/PS_LE_bare_machine.str";
+call, file="../cmd/macros.ptc";
+
+
+/******************************************************************
+ * PTC Twiss
+ ******************************************************************/
+
+use, sequence=PS;
+select, flag=ptc_twiss;
+ptc_create_universe;
+ptc_create_layout, model=2, method=6, nst=5, exact=true,;
+ptc_twiss,closed_orbit,icase=56,no=4,file = '../output/twiss/PS_LE_bare_machine.ptctwiss';
+ptc_end;
+
+/******************************************************************
+ * Twiss
+ ******************************************************************/
+
+twiss, file = '../output/twiss/PS_LE_bare_machine.twiss';

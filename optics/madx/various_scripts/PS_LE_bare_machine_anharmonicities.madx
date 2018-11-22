@@ -1,0 +1,76 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../../beams/ps_beam_1dot4GeV.beamx";
+call, file="../../elements/PS.ele";
+call, file="../../sequence/PS.seq";
+call, file="../../strength/elements.str";
+call, file="../../strength/PS_LE_bare_machine.str";
+call, file="../../cmd/macros.ptc";
+
+
+/******************************************************************
+ * Tracking
+ ******************************************************************/
+
+use, sequence=PS;
+ptc_create_universe,;
+ptc_create_layout,time=false, model=2, exact=true, method=6, nst=5;
+PTC_START, x=0.001, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.002, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.003, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.004, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.005, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.006, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.007, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.008, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.009, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.010, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.011, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.012, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.013, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.014, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+PTC_START, x=0.015, px=0.0, y=0.0, py=0.0, t=0.0, pt=0.0;
+ptc_track, deltap=0.000,icase=4,turns=1000,file=../../output/anharmonicities/PS_LE_bare_machine_ptc_track_detuning,element_by_element,dump;
+ptc_track_end;
+ptc_end;
+
+stop;
+
+
+/******************************************************************
+ * Anharmonicities
+ ******************************************************************/
+
+use, sequence=PS;
+
+ptc_create_universe;
+ptc_create_layout,time=false, model=2, exact=true, method=6, nst=5;
+
+select_ptc_normal,  q1=0, q2=0;
+
+select_ptc_normal, anhx=1,0,0; ! dQx/dex
+select_ptc_normal, anhx=2,0,0; ! d2Qx/dex^2
+select_ptc_normal, anhx=3,0,0; ! d3Qx/dex^3
+select_ptc_normal, anhx=0,1,0;
+
+select_ptc_normal, anhy=1,0,0; ! dQy/dey
+select_ptc_normal, anhy=2,0,0; ! d2Qy/dey^2
+select_ptc_normal, anhy=3,0,0; ! d3Qy/dey^3
+select_ptc_normal, anhy=0,1,0;
+
+ptc_normal,normal,icase=5,no=7;
+ptc_end;
+write, table=normal_results,file='../../output/anharmonicities/PS_LE_bare_machine_anharmonicities.tfs';
+
+stop;

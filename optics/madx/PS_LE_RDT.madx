@@ -1,0 +1,46 @@
+/******************************************************************
+ * MAD-X PS Optics
+ **
+ ** LHC low-energy
+ **
+ ** Alexander Huschauer
+ ** Created 08/02/18
+ ******************************************************************/
+ 
+/******************************************************************
+ * Call lattice files
+ ******************************************************************/
+
+call, file="../beams/ps_beam_1dot4GeV.beamx";
+call, file="../elements/PS.ele";
+call, file="../sequence/PS.seq";
+call, file="../strength/elements.str";
+call, file="../strength/PS_LE_LHC.str";
+call, file="../cmd/macros.ptc";
+
+IXNO55 := 30;
+
+/******************************************************************
+ * PTC twiss 
+ ******************************************************************/
+
+/*
+use, sequence=PS;
+ptc_create_universe;
+ptc_create_layout, time=true, model=2, exact=true, method=6, nst=5;
+ptc_twiss,closed_orbit,icase=56,no=4,file="../output/RDT/PS_LE_RDT.ptctwiss";
+ptc_end;
+*/
+
+
+/******************************************************************
+ * Tracking
+ ******************************************************************/
+
+use, sequence=PS;
+ptc_create_universe,;
+ptc_create_layout,time=true, model=2, exact=true, method=6, nst=5;
+ptc_START, x = 0.01, px = 0.0, y = 0.01, py = 0.0;
+ptc_track, deltap=0.000,icase=4,turns=20000,file="../output/RDT/PS_LE_RDT_XNO55_30A.ptctrack", element_by_element, dump;
+ptc_track_end;
+ptc_end;
