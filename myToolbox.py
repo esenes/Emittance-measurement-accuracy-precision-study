@@ -1218,7 +1218,7 @@ class SEM_grids:
         
         print('\nThe following devices were found:')
         for k in device_dict.keys():
-            print k
+            print(k)
             
         return device_dict
 

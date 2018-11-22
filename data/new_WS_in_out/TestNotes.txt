@@ -1,0 +1,69 @@
+30/10/2018 09:55 (Screenshot)
+
+Date: 
+30/10/2018
+
+Beam: 
+	MD4404_BCMS (MD7) Single Bunch Intensity 75e10
+
+People: 
+	J.Emery, J.L. Sirvent (BE-BI-PM)
+	E.Senes (BE-OP)
+
+Objective:
+	Study INOUT Systematics of LIU-BWS with alter
+
+Conditions: 
+	Cycle sequencer #3 Previous Cycle is MTE_2018 (SFTPRO2)
+
+
+Alternating Scans IN OUT at 550ms
+----------------------------------
+	For IN at 400ms LTIM Dlay 349 (OUT --> 726ms)
+	For OUT at 400ms LTIM Dlay 74 (IN --> 120ms)
+
+	PMT IN Window --> 47 54 (Centre 51ms)
+	PMT OUT Window --> 322 330 (Centre 326ms)
+
+Eugenio's Notes: Screenshots
+----------------
+today in scan - out scan benchmarking: checking that the result is the same !
+Program of today:
+- measurement at BCMS flatbottom:
+alternating measurments of inscan at C400 and inscan at C120ish-outscan at C400. 
+The old wirescanner is swinged at C450 for reference.
+
+
+Screenshots in BI-PS Logbook
+
+30/10/2018 09:19 (Screenshots)
+DAY PSMD
+
+	Beam reference in the PS.
+	BPMs TMS start at C395
+
+	
+30/10/2018 11:07 (Screenshot)
+
+	Systematic LIU Scans started at # 20 2018-10-30-11-07-18
+	BWS 65H Being operated as well with his IN after the LIU OUT scan.
+
+
+30/10/2018 12:06 
+
+	Just seen that cycle is different wer'e at #18 with SFTPRO2 before us
+
+
+30/10/2018 13:00
+
+	Huge loses on MD7 and all other beams 2018-10-30-13-00-29
+	Beam off for a while
+
+30/10/2018 13:17 (Screenshot)
+	
+	Beam Back
+
+
+30/10/2018 13:42
+	
+	Acq Window Re-Tuned

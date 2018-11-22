@@ -1,0 +1,47 @@
+Date:
+	17/10/2018
+
+Beam: 
+	Measurements with TOF Beams (MD3) MD4004_TOF_PS
+
+MD: 
+	MD4603 
+
+Objective: 
+	Systematic Beam profile measurements with BWS65H and LIUBWS on TOF
+
+
+* First measurements TOF 1 bunch super gros TOF 842e10 1 bunch*
+* LIU-HV 600v as usually
+
+
+1.) First measurements with BWS65H (20) 
+	IN at 280ms Out at 280 +250ms
+
+2.) Second Set of measurements with LIU-BWS: 1 - 3 (Test)
+	IN at 280ms (ltim dlay 234ms) OUT 234 + 233ms
+
+3.) Second Set of measurements with LIU-BWS (20): 4 - 27 (SISTEMATIC) - 3 or 4 bad ones
+	IN at 280ms (ltim dlay 234ms) OUT 234 + 233ms
+
+4.) Third set with BWS65H (20)
+	IN at 725.5ms OUT is out of the beam!
+
+5.) Fourth Set with LIU-BWS (20) - 30 - 50
+	IN at 725.5ms OUT is out of the beam! (Ltim Dlay 679ms)
+	- The sequence was changed at some point 
+
+
+-- Repeating Backwards --
+
+6.) BWS65H Flat top as in 4 (20)
+
+7.) LIU-BWS flat top as 5 (20) 51 - 71 
+
+8.) BWS65H Flat botttom as in 1 (20)
+
+9.) LIU-BWS flat botttom as 2 (20) 72 - 92 
+
+10.) Last Set with LIU-BWS in the ramp 93-111
+	In at the same time as the previous out
+	IN at 437 OUT at 654ms
