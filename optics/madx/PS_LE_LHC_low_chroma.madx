@@ -11,12 +11,11 @@
 * Define bump shape,
 * namings as in YASP
 ******************************************************************/
-str_DHZ49 := 57.56e-3;
-str_DHZ51 := 0.;
-str_DHZ53 := 22.28e-3;
-str_DHZ55 := -27.47e-3;
-str_DHZ57 := 73.29e-3;
-
+str_DHZ49 := 0.;
+str_DHZ51 := -6.3354e-5;
+str_DHZ53 :=  2.9060e-5;
+str_DHZ55 :=  2.0537e-5;
+str_DHZ57 := -5.4794e-5;
 
 /******************************************************************
  * Call lattice files
@@ -27,7 +26,7 @@ call, file="../elements/PS.ele";
 call, file="../sequence/PS.seq";
 call, file="../strength/elements.str";
 call, file="../strength/PS_LE_LHC_low_chroma.str";
-call, file="../cmd/macros.ptc";
+! call, file="../cmd/macros.ptc";
 
  /******************************************************************
  * Matching
@@ -57,4 +56,4 @@ kd := 3.59999e-03;
  ******************************************************************/
 
 use, sequence=PS;
-twiss, file = '../output/PS_LE_LHC_low_chroma.twiss';
+twiss, file = '../output/bump_DHZ51-57.twiss';

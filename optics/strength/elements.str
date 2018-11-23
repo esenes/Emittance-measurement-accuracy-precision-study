@@ -128,7 +128,7 @@
    PR.QSK30      , KSL  :=  {0, KQSK30};
    PR.QSK34      , KSL  :=  {0, KQSK34};
    PR.QSK38      , KSL  :=  {0, KQSK38};
-   PR.QSK42      , KSL  :=  {0, KQSK42};
+!   PR.QSK42      , KSL  :=  {0, KQSK42};
    PR.QSK44      , KSL  :=  {0, KQSK44};
    PR.QSK48      , KSL  :=  {0, KQSK48};
    PR.QSK54      , KSL  :=  {0, KQSK54};

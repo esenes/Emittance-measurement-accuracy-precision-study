@@ -401,7 +401,7 @@ CF001 = 1; ! Correction Factor for Backleg windings
 CS001 = (1-CF001)*(0.0313548265359+0.0314770265359); ! Correction Strength
 PR.BHT000001.corr1  : HKICKER, KICK=CS001/5; ! Back leg windings
 PR.BHT000001.corr2  : HKICKER, KICK=CS001/5; ! Back leg windings
-PR.BHT000001.corr3  : HKICKER, KICK:=CS001/5; ! Back leg windings
+PR.BHT000001.corr3  : HKICKER, KICK=CS001/5; ! Back leg windings
 PR.BHT000001.corr4  : HKICKER, KICK=CS001/5; ! Back leg windings
 PR.BHT000001.corr5  : HKICKER, KICK=CS001/5; ! Back leg windings
 
@@ -2145,7 +2145,7 @@ PR.BHR000048.corr4  : HKICKER, KICK=CS048/5; ! Back leg windings
 PR.BHR000048.corr5  : HKICKER, KICK=CS048/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHR000048.corr3  : HKICKER, KICK:=str_BHZ49;
+PR.BHR000048.corr3  : HKICKER, KICK:=str_DHZ49;
 
 PR.BHR000048.FEXFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KE1F*CF048,K2:=KE2F*CF048,ANGLE=ANEF*REV/2;
 PR.BHR000048.FEXFF2 : SBEND,L=(LF+DLF)/2,E2=EF,K1:=KE1F*CF048,K2:=KE2F*CF048,ANGLE=ANEF*REV/2;
@@ -2185,7 +2185,7 @@ PR.BHT000049.corr4  : HKICKER, KICK=CS049/5; ! Back leg windings
 PR.BHT000049.corr5  : HKICKER, KICK=CS049/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHT000049.corr3  : HKICKER, KICK:=str_BHZ49;
+PR.BHT000049.corr3  : HKICKER, KICK:=str_DHZ49;
 
 
 PR.BHT000049.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF049,K2:=KI2F*CF049,ANGLE=ANIF*REV/2;
@@ -2226,7 +2226,7 @@ PR.BHR000050.corr4  : HKICKER, KICK=CS050/5; ! Back leg windings
 PR.BHR000050.corr5  : HKICKER, KICK=CS050/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHR000050.corr3  : HKICKER, KICK:=str_BHZ51;
+PR.BHR000050.corr3  : HKICKER, KICK:=str_DHZ51;
 
 
 PR.BHR000050.FEXFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KE1F*CF050,K2:=KE2F*CF050,ANGLE=ANEF*REV/2;
@@ -2267,7 +2267,7 @@ PR.BHT000051.corr4  : HKICKER, KICK=CS051/5; ! Back leg windings
 PR.BHT000051.corr5  : HKICKER, KICK=CS051/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHT000051.corr3  : HKICKER, KICK:=str_BHZ51;
+PR.BHT000051.corr3  : HKICKER, KICK:=str_DHZ51;
 
 
 PR.BHT000051.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF051,K2:=KI2F*CF051,ANGLE=ANIF*REV/2;
@@ -2308,7 +2308,7 @@ PR.BHR000052.corr4  : HKICKER, KICK=CS052/5; ! Back leg windings
 PR.BHR000052.corr5  : HKICKER, KICK=CS052/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHR000052.corr3  : HKICKER, KICK:=str_BHZ53;
+PR.BHR000052.corr3  : HKICKER, KICK:=str_DHZ53;
 
 
 PR.BHR000052.FEXFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KE1F*CF052,K2:=KE2F*CF052,ANGLE=ANEF*REV/2;
@@ -2349,7 +2349,7 @@ PR.BHS000053.corr4  : HKICKER, KICK=CS053/5; ! Back leg windings
 PR.BHS000053.corr5  : HKICKER, KICK=CS053/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHS000053.corr3  : HKICKER, KICK:=str_BHZ53;
+PR.BHS000053.corr3  : HKICKER, KICK:=str_DHZ53;
 
 
 PR.BHS000053.FEXFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KE1F*CF053,K2:=KE2F*CF053,ANGLE=ANEF*REV/2;
@@ -2390,7 +2390,7 @@ PR.BHR000054.corr4  : HKICKER, KICK=CS054/5; ! Back leg windings
 PR.BHR000054.corr5  : HKICKER, KICK=CS054/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHR000054.corr3  : HKICKER, KICK:=str_BHZ55;
+PR.BHR000054.corr3  : HKICKER, KICK:=str_DHZ55;
 
 
 PR.BHR000054.FEXFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KE1F*CF054,K2:=KE2F*CF054,ANGLE=ANEF*REV/2;
@@ -2431,7 +2431,7 @@ PR.BHT000055.corr4  : HKICKER, KICK=CS055/5; ! Back leg windings
 PR.BHT000055.corr5  : HKICKER, KICK=CS055/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHT000055.corr3  : HKICKER, KICK:=str_BHZ55;
+PR.BHT000055.corr3  : HKICKER, KICK:=str_DHZ55;
 
 
 PR.BHT000055.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF055,K2:=KI2F*CF055,ANGLE=ANIF*REV/2;
@@ -2472,7 +2472,7 @@ PR.BHU000056.corr4  : HKICKER, KICK=CS056/5; ! Back leg windings
 PR.BHU000056.corr5  : HKICKER, KICK=CS056/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHU000056.corr3  : HKICKER, KICK:=str_BHZ57;
+PR.BHU000056.corr3  : HKICKER, KICK:=str_DHZ57;
 
 
 PR.BHU000056.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF056,K2:=KI2F*CF056,ANGLE=ANIF*REV/2;
@@ -2513,7 +2513,7 @@ PR.BHT000057.corr4  : HKICKER, KICK=CS057/5; ! Back leg windings
 PR.BHT000057.corr5  : HKICKER, KICK=CS057/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHT000057.corr3  : HKICKER, KICK:=str_BHZ57;
+PR.BHT000057.corr3  : HKICKER, KICK:=str_DHZ57;
 
 
 PR.BHT000057.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF057,K2:=KI2F*CF057,ANGLE=ANIF*REV/2;
@@ -2554,7 +2554,7 @@ PR.BHU000058.corr4  : HKICKER, KICK=CS058/5; ! Back leg windings
 PR.BHU000058.corr5  : HKICKER, KICK=CS058/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHU000058.corr3  : HKICKER, KICK:=str_BHZ59;
+PR.BHU000058.corr3  : HKICKER, KICK:=str_DHZ59;
 
 
 PR.BHU000058.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF058,K2:=KI2F*CF058,ANGLE=ANIF*REV/2;
@@ -2595,7 +2595,7 @@ PR.BHT000059.corr4  : HKICKER, KICK=CS059/5; ! Back leg windings
 PR.BHT000059.corr5  : HKICKER, KICK=CS059/5; ! Back leg windings
 
 ! addon for the bump control
-PR.BHT000059.corr3  : HKICKER, KICK:=str_BHZ59;
+PR.BHT000059.corr3  : HKICKER, KICK:=str_DHZ59;
 
 
 PR.BHT000059.FINFF1 : SBEND,L=(LF+DLF)/2,E1=EF,K1:=KI1F*CF059,K2:=KI2F*CF059,ANGLE=ANIF*REV/2;
@@ -4121,4 +4121,24 @@ PR.BHR000100.DEXDD1 : SBEND,L=(LD+DLD)/2,E1=ED,K1:=KE1D*CF100,K2:=KE2D*CF100,ANG
 PR.BHR000100.DEXDD2 : SBEND,L=(LD+DLD)/2,E2=ED,K1:=KE1D*CF100,K2:=KE2D*CF100,ANGLE=ANED*REV/2;
 
 
-PR.BHR000100 : SEQUENCE, refer = CENTRE,  L = 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+PR.BHR000100 : SEQUENCE, refer = CENTRE,  L = 5.00318530718;  ! D-F unit, yoke outside
+ PR.BHR000100.c1     : c,      AT = 0.1492863;
+ PR.BHR000100.corr1          , AT = 0.2985726;
+ PR.BHR000100.mpde1  : mpde1,  AT = 0.2985726;
+ PR.BHR000100.DEXDD1         , AT = 0.8497726;
+ PR.BHR000100.corr2          , AT = 1.4009726;
+ PR.BHR000100.mpdm   : mpdm,   AT = 1.4009726;
+ PR.BHR000100.DEXDD2         , AT = 1.9521726;
+ PR.BHR000100.mpde2  : mpde2,  AT = 2.5033726;
+ PR.BHR000100.j1     : j1    , AT = 2.5058726-LJ/2;
+ PR.BHR000100.corr3          , AT = 2.5058726;
+ PR.BHR000100.j2     : j2    , AT = 2.5058726+LJ/2;
+ PR.BHR000100.mpfe1  : mpfe1,  AT = 2.5083726;
+ PR.BHR000100.FEXFF1         , AT = 3.0574326;
+ PR.BHR000100.corr4          , AT = 3.6064926;
+ PR.BHR000100.mpfm   : mpfm,   AT = 3.6064926;
+ PR.BHR000100.FEXFF2         , AT = 4.1555526;
+ PR.BHR000100.corr5          , AT = 4.7046126;
+ PR.BHR000100.mpfe2  : mpfe2,  AT = 4.7046126;
+ PR.BHR000100.c2     : c,      AT = 4.8538989;
+ENDSEQUENCE;
